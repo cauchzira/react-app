@@ -1,0 +1,14 @@
+@import "/src/variables.scss";
+
+.message__wrapp {
+  //   max-width: 15%;
+  //   text-align: left;
+  //   background-color: $bgMessageField;
+  //   border-radius: $brRadius;
+  &__text_message {
+    padding: $padding;
+    color: $txtMessage;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
