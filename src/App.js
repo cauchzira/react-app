@@ -1,12 +1,7 @@
 import "./App.scss";
-import MessageField from "./components/MessageField";
 
 function App() {
-  return (
-    <div className="App">
-      <MessageField />
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
