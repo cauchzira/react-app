@@ -1,0 +1,10 @@
+@import "/src/variables.scss";
+
+.message__wrapp {
+  &__text_message {
+    padding: $padding;
+    color: $txtMessage;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
