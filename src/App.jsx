@@ -1,5 +1,5 @@
 import "./App.scss";
-import MessageField from "./components/MessageField";
+import MessageField from "./components/messageField/MessageField";
 
 function App() {
   return (

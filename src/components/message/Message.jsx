@@ -1,4 +1,5 @@
 import React from "react";
+import "../message/message.scss";
 
 function Message({message}) {
   return (

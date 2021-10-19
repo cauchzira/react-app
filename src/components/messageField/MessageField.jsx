@@ -1,5 +1,6 @@
 import React from "react";
-import Message from "./Message";
+import Message from "../message/Message";
+import "../messageField/messageField.scss";
 
 const message =
   "Первое переданное сообщение с помощью Props! Теперь я лучше знаю React.js!";
