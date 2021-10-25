@@ -1,26 +1,26 @@
 import React from 'react';
 import "./styles.scss";
-import {useState} from "react";
+import {useEffect, useRef} from "react";
 
+const date = new Date();
 
-let date = new Date();
+export function MessageInput({postMessage}) {
+  const input = useRef(null);
 
-export function MessageInput() {
-  const [message, setMessage] = useState({id: 1, text:'', sent: `${date.getHours()}:${date.getMinutes()}`});
-
-  const userMessage = React.createRef();
-
-  function sendMessage() {
-    let text = userMessage.current.value;
-    let addTxt = [...message, text]; 
-    setMessage(addTxt)
-    userMessage.current.value = '';
+  function onSubmit() {
+    postMessage(prev => [...prev, {id: 4, author: 'Daniil Fishchenko', message: input.current.value, sent: `${date.getHours()}:${date.getMinutes()}`}])
   }
+
+  useEffect(() => {
+    console.log(input.current.value)
+    
+  }, [input.current])
+  
 
   return (
     <div className="user__message">
-      <textarea placeholder="Write your message..." className="user__message-input" name="" id="" ref={userMessage}></textarea>
-      <button onClick={sendMessage} className="user__message-send">Send</button>
+      <input placeholder="Write your message..." className="user__message-input" ref={input}></input>
+      <button onClick={onSubmit} className="user__message-send">Send</button>
     </div>
   );
 }
