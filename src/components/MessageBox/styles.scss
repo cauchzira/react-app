@@ -1,0 +1,12 @@
+.message__field {
+  display: inline-block;
+  max-width: 300px;
+  color: var(--color);
+  margin: 30px 15px;
+  text-align: left;
+  background-color: var(--color-background-message);
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  height: auto;
+}

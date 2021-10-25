@@ -1,0 +1,43 @@
+.user__message {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  &-input {
+    background-color: var(--color-input);
+    color: var(--color-input-txt);
+    border-radius: 5px;
+    min-width: 70%;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    resize: none;
+    position: relative;
+    transition: var(--base-delay);
+    &:hover {
+      background-color: var(--active-input);
+    }
+    &:focus {
+      border: 1px solid var(--send-btn);
+    }
+  }
+  &-send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    transition: var(--base-delay);
+    position: absolute;
+    right: 16%;
+    color: #ffffff;
+    background-color: var(--send-btn);
+    // &:hover {
+    //   color: var(--active-send-btn);
+    // }
+  }
+}

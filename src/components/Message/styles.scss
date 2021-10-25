@@ -1,0 +1,20 @@
+.message-wrapp {
+  &__text {
+    color: #000000;
+    display: flex;
+    text-align: left;
+    flex-wrap: wrap;
+  }
+  &__author {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--color-author);
+  }
+  &__date-sent {
+    position: absolute;
+    font-size: 14px;
+    color: var(--color);
+    right: 0;
+    bottom: -20px;
+  }
+}
