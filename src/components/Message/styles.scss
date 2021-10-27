@@ -3,6 +3,7 @@
     color: #000000;
     display: flex;
     text-align: left;
+    word-break: break-word;
     flex-wrap: wrap;
   }
   &__author {
@@ -12,9 +13,9 @@
   }
   &__date-sent {
     position: absolute;
-    font-size: 14px;
-    color: var(--color);
+    font-size: 11px;
+    color: var(--color-black-secondary);
     right: 0;
-    bottom: -20px;
+    bottom: -17px;
   }
 }
