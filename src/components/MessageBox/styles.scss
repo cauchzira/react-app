@@ -9,4 +9,21 @@
   border-radius: 5px;
   position: relative;
   height: auto;
+  animation: animated 0.25s;
+}
+
+@keyframes animated {
+  0% {
+    opacity: 0;
+    top: 10px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.left {
+  align-self: flex-start;
 }

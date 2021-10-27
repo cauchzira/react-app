@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./styles.scss";
 
 export function Message({author, message, sent}) {
@@ -10,4 +10,3 @@ export function Message({author, message, sent}) {
     </div>
   );
 }
-

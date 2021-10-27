@@ -1,6 +1,10 @@
 import React from "react";
 import "./styles.scss";
 import {useState} from "react";
+import {createId} from "../../lib";
+
+const date = new Date();
+const getTime = `${date.getHours()}:${date.getMinutes()}`;
 
 export function MessageInput({postMessage}) {
   const [textInput, setTextInput] = useState("");
@@ -10,15 +14,18 @@ export function MessageInput({postMessage}) {
   }
 
   function onSubmit() {
-    const date = new Date();
-    const getTime = `${date.getHours()}:${date.getMinutes()}`;
+    if (!textInput) {
+      return;
+    }
+    const id = createId();
+
     postMessage(prev => [
       ...prev,
       {
-        id: 4,
+        id,
         author: "Daniil Fishchenko",
         message: textInput,
-        sent: `${getTime}`
+        sent: getTime
       }
     ]);
     setTextInput("");
