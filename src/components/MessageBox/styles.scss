@@ -1,0 +1,29 @@
+.message__field {
+  display: inline-block;
+  max-width: 300px;
+  color: var(--color-black);
+  margin: 16px 15px;
+  text-align: left;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  height: auto;
+  animation: animated 0.25s;
+}
+
+@keyframes animated {
+  0% {
+    opacity: 0;
+    top: 10px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.left {
+  align-self: flex-start;
+}
