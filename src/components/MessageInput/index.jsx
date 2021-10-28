@@ -1,13 +1,19 @@
 import React from "react";
 import "./styles.scss";
-import {useState} from "react";
+import {useState, useRef, useEffect} from "react";
 import {createId} from "../../lib";
+import {Button} from "@mui/material";
 
 const date = new Date();
 const getTime = `${date.getHours()}:${date.getMinutes()}`;
 
 export function MessageInput({postMessage}) {
   const [textInput, setTextInput] = useState("");
+  const autoFocus = useRef(null);
+
+  useEffect(() => {
+    autoFocus.current?.focus();
+  }, [textInput]);
 
   function change(e) {
     setTextInput(e.target.value);
@@ -52,8 +58,9 @@ export function MessageInput({postMessage}) {
         className="user__message-input"
         value={textInput}
         onChange={change}
+        ref={autoFocus}
       ></input>
-      <button onClick={onSubmit} className="user__message-send">
+      <Button onClick={onSubmit} variant="contained">
         <svg
           className="btn-send-pic"
           width="27"
@@ -89,7 +96,44 @@ export function MessageInput({postMessage}) {
           </defs>
         </svg>
         Send
-      </button>
+      </Button>
+      {/* <button onClick={onSubmit} className="user__message-send">
+        <svg
+          className="btn-send-pic"
+          width="27"
+          height="22"
+          viewBox="0 0 27 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 21C9.16055 21 8.75781 20.6909 8.46827 19.9116L6 11.9909L25 1"
+            fill="#C8DAEA"
+          />
+          <path
+            d="M10 21C10.5455 21 10.7864 20.6861 11.0909 20.3136L14 16.7537L10.3713 14"
+            fill="#A9C9DD"
+          />
+          <path
+            d="M10.5774 14.5186L20.5835 21.7003C21.7254 22.3124 22.5493 21.9954 22.8338 20.6706L26.9068 2.02473C27.3237 0.400607 26.2695 -0.336278 25.1771 0.145532L1.26055 9.10454C-0.371951 9.74072 -0.362226 10.6255 0.96302 11.0197L7.10054 12.8808L21.3095 4.17227C21.9803 3.77709 22.5961 3.98936 22.0908 4.42514"
+            fill="url(#paint0_linear_207:528)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_207:528"
+              x1="17.82"
+              y1="9.614"
+              x2="21.5105"
+              y2="18.2693"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="white" />
+              <stop offset="1" stopColor="white" />
+            </linearGradient>
+          </defs>
+        </svg>
+        Send
+      </button> */}
     </div>
   );
 }
