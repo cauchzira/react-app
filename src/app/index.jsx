@@ -34,6 +34,13 @@ const theme = createMuiTheme({
           padding: "10px 16px"
         }
       }
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          margin: "16px 0"
+        }
+      }
     }
   }
 });
