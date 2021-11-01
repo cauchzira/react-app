@@ -1,7 +1,7 @@
-import "./styles/index.scss";
 import React from "react";
 import {useState, useEffect} from "react";
-import {MessageList, MessageInput} from "../components";
+import InputContainer from "../components/MessageInput/messageInputContainer";
+import {MessageList} from "../components";
 import {ThemeProvider} from "@mui/material";
 import {createMuiTheme} from "@mui/material";
 import {deepPurple, purple} from "@mui/material/colors";
@@ -10,10 +10,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Checkbox from "@mui/material/Checkbox";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 import {createId} from "../lib";
+import "./styles/index.scss";
 
 const date = new Date();
 const getTime = `${date.getHours()}:${date.getMinutes()}`;
@@ -47,7 +46,6 @@ const theme = createMuiTheme({
 
 function App() {
   const [messageList, setMessageList] = useState([]);
-  const [chat, setChat] = useState([]);
 
   useEffect(() => {
     setTimeout(function () {
@@ -73,12 +71,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <div className="Header">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum quia
-          error hic iusto nihil iste, praesentium cumque similique! Eligendi
-          optio beatae asperiores corrupti velit veniam voluptate consectetur
-          culpa porro ratione!
-        </div>
+        <div className="Header"></div>
         <div className="Content">
           <div className="content_wrapp">
             <MessageList messageList={messageList} />
@@ -108,7 +101,10 @@ function App() {
           </List>
         </div>
         <div className="Input">
-          <MessageInput className="input-wrapp" postMessage={setMessageList} />
+          <InputContainer
+            className="input-wrapp"
+            postMessage={setMessageList}
+          />
         </div>
       </div>
     </ThemeProvider>
