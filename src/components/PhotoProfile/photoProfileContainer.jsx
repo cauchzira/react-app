@@ -6,7 +6,7 @@ import "./styles.scss";
 const PhotoProfileContainer = () => {
   return (
     <>
-      <PhotoProfile photo={Avatar} />
+      <PhotoProfile userAvatar={Avatar} />
     </>
   );
 };

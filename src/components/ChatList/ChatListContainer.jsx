@@ -9,7 +9,12 @@ const ChatListContainer = () => {
     {id: "2", title: `Mother of Dragons`, lastMessage: "Сообщение: Hello!"},
     {id: "3", title: `Mother of Dragons`, lastMessage: "Сообщение: Hello!"}
   ]);
-  return <ChatList props={chat} />;
+  return (
+    <>
+      <ChatList props={chat} />
+      {/* <button>Add Chat</button> */}
+    </>
+  );
 };
 
 export default ChatListContainer;

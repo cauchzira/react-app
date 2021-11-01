@@ -27,7 +27,7 @@ const MessageComponent = ({change, onSubmit, autoFocus, textInput}) => {
           onChange={change}
           ref={autoFocus}
         ></input>
-        <Button className="ppp" onClick={onSubmit} variant="contained">
+        <Button onClick={onSubmit} variant="contained">
           <svg
             className="btn-send-pic"
             width="27"

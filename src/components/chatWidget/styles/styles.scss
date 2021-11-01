@@ -1,0 +1,33 @@
+.chat_widget {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1.7fr 4.8fr 3fr;
+  grid-template-rows: 8.5fr 0fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Sidebar Content Content"
+    "Sidebar Input Input";
+}
+
+.Content {
+  background-color: #f5f6f8;
+  grid-area: Content;
+  .content_wrapp {
+    background-color: #f5f6f8;
+    height: 650px;
+    overflow-y: auto;
+    position: relative;
+  }
+}
+
+.Sidebar {
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+  border-right: 2px solid #e6e6e6;
+  grid-area: Sidebar;
+}
+
+.Input {
+  grid-area: Input;
+  border-top: 1px solid #e6e6e6;
+}

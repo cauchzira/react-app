@@ -1,0 +1,31 @@
+.header {
+  height: 10vh;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e2e2e2;
+  padding: 24px;
+  &_logo {
+  }
+  &_title {
+    color: #9c27b0;
+  }
+  &_buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+  }
+  &_link {
+    background-color: rgb(163, 163, 163);
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.45s ease;
+    color: rgb(255, 240, 23);
+    &:hover {
+      color: #ffffff;
+      background-color: rgb(213, 68, 218);
+    }
+  }
+}
