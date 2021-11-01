@@ -1,6 +1,7 @@
 import React from "react";
+import {v4 as uuidv4} from "uuid";
 import {useState, useRef, useEffect} from "react";
-import {createId} from "../../lib";
+
 import MessageComponent from "./messageInputComponent";
 
 const date = new Date();
@@ -22,12 +23,11 @@ const InputContainer = ({postMessage}) => {
     if (!textInput) {
       return;
     }
-    const id = createId();
 
     postMessage(prev => [
       ...prev,
       {
-        id,
+        id: `${uuidv4()}`,
         author: "Daniil Fishchenko",
         message: textInput,
         sent: getTime

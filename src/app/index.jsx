@@ -1,23 +1,18 @@
 import React from "react";
+import {v4 as uuidv4} from "uuid";
 import {useState, useEffect} from "react";
 import InputContainer from "../components/MessageInput/messageInputContainer";
 import {MessageList} from "../components";
 import {ThemeProvider} from "@mui/material";
-import {createMuiTheme} from "@mui/material";
+import {createTheme} from "@mui/material";
 import {deepPurple, purple} from "@mui/material/colors";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import {createId} from "../lib";
+import ChatListContainer from "../components/ChatList/ChatListContainer";
 import "./styles/index.scss";
 
 const date = new Date();
 const getTime = `${date.getHours()}:${date.getMinutes()}`;
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: purple,
     secondary: deepPurple
@@ -49,7 +44,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(function () {
-      const id = createId();
+      const id = uuidv4();
       if (
         messageList.length !== 0 &&
         messageList[messageList.length - 1].author !== "AutoBot"
@@ -65,7 +60,7 @@ function App() {
           }
         ]);
       }
-    }, 3000);
+    }, 1500);
   }, [messageList]);
 
   return (
@@ -78,27 +73,7 @@ function App() {
           </div>
         </div>
         <div className="Sidebar">
-          <List
-            dense
-            sx={{width: "100%", maxWidth: 360, bgcolor: "background.paper"}}
-          >
-            {[0, 1, 2, 3].map(value => {
-              const labelId = `checkbox-list-secondary-label-${value}`;
-              return (
-                <ListItem key={value} disablePadding>
-                  <ListItemButton>
-                    <ListItemAvatar>
-                      <Avatar
-                        alt={`Avatar n°${value + 1}`}
-                        src={`/static/images/avatar/${value + 1}.jpg`}
-                      />
-                    </ListItemAvatar>
-                    <ListItemText id={labelId} primary={`Чат №${value + 1}`} />
-                  </ListItemButton>
-                </ListItem>
-              );
-            })}
-          </List>
+          <ChatListContainer />
         </div>
         <div className="Input">
           <InputContainer

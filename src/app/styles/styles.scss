@@ -13,6 +13,9 @@ body {
 
 .App {
   margin: 64px auto;
+  padding: 20px;
+  background-color: #d3e3fa;
+  border-radius: 20px;
   max-width: 1600px;
   display: grid;
   grid-template-columns: 0.7fr 1.8fr 1fr;
@@ -27,7 +30,6 @@ body {
 .Header {
   padding: 24px;
   border-radius: 10px 10px 0 0;
-  background-color: wheat;
   grid-area: Header;
 }
 
@@ -44,7 +46,8 @@ body {
 
 .Sidebar {
   border-radius: 0 0 0 10px;
-  background-color: #fff;
+  // background-color: #fff;
+  padding-right: 20px;
   border-right: 2px solid #e6e6e6;
   grid-area: Sidebar;
 }
