@@ -1,16 +1,11 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
-import {useState, useEffect} from "react";
-import InputContainer from "../components/MessageInput/messageInputContainer";
-import {MessageList} from "../components";
+import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import {ThemeProvider} from "@mui/material";
 import {createTheme} from "@mui/material";
 import {deepPurple, purple} from "@mui/material/colors";
-import ChatListContainer from "../components/ChatList/ChatListContainer";
+import Chat from "../pages/Chat/Chat";
+import Header from "../components/Header/Header";
 import "./styles/index.scss";
-
-const date = new Date();
-const getTime = `${date.getHours()}:${date.getMinutes()}`;
 
 const theme = createTheme({
   palette: {
@@ -40,48 +35,24 @@ const theme = createTheme({
 });
 
 function App() {
-  const [messageList, setMessageList] = useState([]);
-
-  useEffect(() => {
-    setTimeout(function () {
-      const id = uuidv4();
-      if (
-        messageList.length !== 0 &&
-        messageList[messageList.length - 1].author !== "AutoBot"
-      ) {
-        setMessageList(prev => [
-          ...prev,
-          {
-            id,
-            author: "AutoBot",
-            message: "Это сообщение от робота!",
-            sent: getTime,
-            photo: "../src/images/robot.png"
-          }
-        ]);
-      }
-    }, 1500);
-  }, [messageList]);
-
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <div className="Header"></div>
-        <div className="Content">
-          <div className="content_wrapp">
-            <MessageList messageList={messageList} />
-          </div>
-        </div>
-        <div className="Sidebar">
-          <ChatListContainer />
-        </div>
-        <div className="Input">
-          <InputContainer
-            className="input-wrapp"
-            postMessage={setMessageList}
-          />
-        </div>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/main">
+            <Header />
+          </Route>
+          <Route exact path="/messanger/:chatId?">
+            <Chat />
+          </Route>
+          <Redirect to="/main">
+            <Header />
+          </Redirect>
+          <Route path="*">
+            <Header />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

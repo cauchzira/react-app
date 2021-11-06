@@ -4,9 +4,6 @@ import {useState, useRef, useEffect} from "react";
 
 import MessageComponent from "./messageInputComponent";
 
-const date = new Date();
-const getTime = `${date.getHours()}:${date.getMinutes()}`;
-
 const InputContainer = ({postMessage}) => {
   const [textInput, setTextInput] = useState("");
   const autoFocus = useRef(null);
@@ -20,6 +17,8 @@ const InputContainer = ({postMessage}) => {
   }
 
   function onSubmit() {
+    const date = new Date();
+    const getTime = `${date.getHours()}:${date.getMinutes()}`;
     if (!textInput) {
       return;
     }

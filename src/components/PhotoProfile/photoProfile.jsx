@@ -1,9 +1,9 @@
 import React from "react";
 
-const PhotoProfile = ({photo}) => {
+const PhotoProfile = ({userAvatar}) => {
   return (
     <>
-      <img className="photo" src={photo} alt="" />
+      <img className="photo" src={userAvatar} alt="" />
     </>
   );
 };
